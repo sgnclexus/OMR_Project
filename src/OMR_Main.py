@@ -1,19 +1,19 @@
 import cv2
 import numpy as np
-from numpy.lib import utils
-from numpy.lib.function_base import append
-import Utils
+# from numpy.lib import arrayutils
+# from numpy import append
+# import Utils
 import OMR_Rastreo
 import csv
 import os
 import io
 
-#Google Vission para ver que podemos recuperar del OCR
-from google.cloud import vision
-from PIL import Image, ImageDraw, ImageFont
+# Google Vission para ver que podemos recuperar del OCR
+# from google.cloud import vision
+# from PIL import Image, ImageDraw, ImageFont
 
-import func_Get_Data
-import func_DropBoxes
+import utils.func_Get_Data as func_Get_Data
+import utils.func_DropBoxes as func_DropBoxes
 
 
 # VARIABLE DEFINITION
@@ -23,34 +23,32 @@ import func_DropBoxes
 #cap = cv2.VideoCapture(1)
 #cap.set(10,160)
 
-sPath ="test_images"
-output_File_OMR = "Outputs"
+sPath_Images ="test_images"
+output_File_OMR = "Output"
 
 heightImg = 1000
 widthImg  = 900
 #questions=20
 #choices=4
 
-#BORRAMOS ARCHIVO CSV
+# BORRAMOS ARCHIVO CSV
 try:
     os.remove(output_File_OMR)
 except: 
     pass
 
 
-for filename in os.listdir(sPath):
+for filename in os.listdir(sPath_Images):
 
     pathImage = ""
     path_WA_Image = ""
     pathImage = ""
     path_WA_Image = ""    
 
-
     if filename.endswith(".jpg"):
 
-        pathImage ="C:/Users/ceneval/Downloads/Documentacion/2021/08/ProyectoSEP/Imgs/"
-        path_WA_Image = "C:/Users/ceneval/Downloads/Documentacion/2021/08/ProyectoSEP/Imgs/WA_Img/"
-        
+        pathImage = "C:/Users/ceneval/Downloads/Documentacion/2021/08/ProyectoSEP/Imgs/"
+        path_WA_Image = "C:/Users/ceneval/Downloads/Documentacion/2021/08/ProyectoSEP/Imgs/WA_Img/"        
         
         pathImage = pathImage + filename
         path_WA_Image = path_WA_Image + filename
@@ -62,7 +60,6 @@ for filename in os.listdir(sPath):
         sModalidad = []
         sTurno = []
         sResp = []
-
 
         #ID
         sFolio = []        
