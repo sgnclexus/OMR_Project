@@ -317,7 +317,7 @@ def rectContourTurno(contours, areaSeleccion, perimetroSeleccion):
 # CALIFICACIONES
 ########################################################################################################################
 
-def rectContourCalificacion(contours, areaSeleccion, perimetroSeleccion):
+def rectContourCalificacion(contours):
 
     rectCon = []
     max_area = 0
@@ -335,7 +335,7 @@ def rectContourCalificacion(contours, areaSeleccion, perimetroSeleccion):
         
         #if(area > (areaSeleccion - 50) and area < (areaSeleccion + 50) and peri > (perimetroSeleccion - 50) and peri < (perimetroSeleccion + 50) ):            
         #if(area > 1500 and area < 3000):                        
-        if(area > 40000):                        
+        if(area > 100):                        
             #logging.info(peri)
             approx = cv2.approxPolyDP(i, 0.02 * peri, True)
             #print("Corner Points : ",len(approx))              
